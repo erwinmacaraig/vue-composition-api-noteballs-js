@@ -6,7 +6,8 @@
                     Noteballs
                 </div>
 
-                <a @click.prevent="showMobileNav =!showMobileNav" class="navbar-burger" :class="{ 'is-active': showMobileNav}" aria-expanded="false" aria-label="menu"
+                <a @click.prevent="showMobileNav =!showMobileNav" class="navbar-burger"
+                    :class="{ 'is-active': showMobileNav}" aria-expanded="false" aria-label="menu"
                     data-target="navbarBasicExample" role="button">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -40,10 +41,10 @@
             </div> -->
 
                 <div class="navbar-end">
-                    <RouterLink to="/" class="navbar-item" active-class="is-active">
+                    <RouterLink @click="showMobileNav=false" to="/" class="navbar-item" active-class="is-active">
                         Notes
                     </RouterLink>
-                    <RouterLink to="/stats" class="navbar-item" active-class="is-active">
+                    <RouterLink @click="showMobileNav=false" to="/stats" class="navbar-item" active-class="is-active">
                         Stats
                     </RouterLink>
                 </div>

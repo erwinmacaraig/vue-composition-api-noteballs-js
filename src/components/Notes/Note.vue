@@ -9,14 +9,17 @@
             </div>
         </div>
         <footer class="card-footer">
-            <a href="#" class="card-footer-item">Edit</a>
-            <a href="#" @click.prevent="handleDeleteClicked" class="card-footer-item">Delete</a>
+            <RouterLink :to="`/editNote/${note.id}`" class="card-footer-item">Edit</RouterLink>            
+            <a href="#" @click.prevent="storeNotes.deleteNote(note.id)" class="card-footer-item">Delete</a>
         </footer>
     </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
+import { useStoreNotes } from '@/stores/storeNotes'
+
+const storeNotes = useStoreNotes()
 
 const props = defineProps({
     note: {
