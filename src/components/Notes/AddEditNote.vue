@@ -1,13 +1,13 @@
 <template>
     <div class="card p-4 mb-5" :class="`has-background-${props.bgColor}-dark`">
-    <label v-if="label" class="label has-text-white">
-    {{ label }}
-    </label>
+        <label v-if="label" class="label has-text-white">
+            {{ label }}
+        </label>
         <div class="field">
 
             <div class="control">
                 <textarea class="textarea" :placeholder="placeholder" ref="textareaRef" v-model="modelValue"
-                    @input="$emit('update:modelValue', modelValue)"></textarea>
+                    @input="$emit('update:modelValue', modelValue)" maxlength="100" v-autofocus></textarea>
             </div>
         </div>
 
@@ -19,8 +19,13 @@
     </div>
 </template>
 <script setup>
-    import { ref } from 'vue'
+import { ref } from 'vue'
+import { vAutofocus } from '@/directives/vAutofocus'
+
+
 const textareaRef = ref(null)
+
+
     const props = defineProps({
         modelValue: {
             type: String,
@@ -52,6 +57,5 @@ defineExpose({
     focusTextarea
 })
 
-    // defineExpose will let the child component methods available to it's parent component
-    
+    // defineExpose will let the child component methods available to it's parent component    
 </script>
